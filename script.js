@@ -75,6 +75,30 @@ function printTitle(month,year){
   h1.text(mom.format("MMMM YYYY"));
 }
 
+function changeMonth(month,year){
+  var rightMonth = $("#right-month");
+  var leftMonth = $("#left-month");
+  var countMonth = month;
+
+
+  rightMonth.click(function () {
+    $("li").remove();
+    countMonth++;
+    printTitle(countMonth,year);
+    printDays(countMonth,year);
+    getHolidays(countMonth,year);
+  });
+
+  leftMonth.click(function () {
+    $("li").remove();
+    countMonth--;
+    printTitle(countMonth,year);
+    printDays(countMonth,year);
+    getHolidays(countMonth,year);
+  });
+
+}
+
 function init(){
   var year = 2018;
   var month = 0;
@@ -82,6 +106,7 @@ function init(){
   printTitle(month,year);
   printDays(month,year);
   getHolidays(month,year);
+  changeMonth(month,year);
 }
 
 $(document).ready(init);
