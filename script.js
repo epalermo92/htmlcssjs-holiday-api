@@ -7,7 +7,7 @@ function generateDay(date,month,year){
   mom.year(year);
 
   var data = {
-    day : mom.format("DD MMMM"),
+    day : mom.format("D ddd"),
     attrDay : mom.format("YYYY-MM-DD"),
   }
 
@@ -22,9 +22,9 @@ function printHolidays(holidays){
     var holidayDate = holiday.date;
     var holidayName = holiday.name;
 
-    var dayHoliday = $("li[data-date='"+holidayDate+"']");
+    var dayHoliday = $("div[data-date='"+holidayDate+"']");
     dayHoliday.addClass("holiday");
-    dayHoliday.text(dayHoliday.text() +" - "+ holidayName);
+    dayHoliday.text(dayHoliday.text() + holidayName);
   }
 }
 
@@ -54,7 +54,7 @@ function getHolidays(month,year){
 
 
 function printDays(month,year){
-  var daysList = $("#days-list");
+  var daysCont = $(".days-container");
   var mom = moment();
 
   mom.year(year);
@@ -62,7 +62,7 @@ function printDays(month,year){
 
   for (var i = 1; i <= mom.daysInMonth() ; i++) {
     var dateToAdd = generateDay(i,month,year);
-    daysList.append(dateToAdd);
+    daysCont.append(dateToAdd);
   }
 }
 
@@ -82,7 +82,7 @@ function changeMonth(month,year){
 
 
   rightMonth.click(function () {
-    $("li").remove();
+    $(".day").remove();
     countMonth++;
     printTitle(countMonth,year);
     printDays(countMonth,year);
@@ -90,7 +90,7 @@ function changeMonth(month,year){
   });
 
   leftMonth.click(function () {
-    $("li").remove();
+    $(".day").remove();
     countMonth--;
     printTitle(countMonth,year);
     printDays(countMonth,year);
