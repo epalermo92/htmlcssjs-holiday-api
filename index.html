@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
     <!--Handlebars template -->
     <script id="template" type="text/x-handlebars-template">
-      <li>{{day}}</li>
+      <li data-date="{{attrDay}}">{{day}}</li>
     </script>
     <!--Momentsjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -24,7 +24,6 @@
     <div class="container">
       <h1 id="month-title">TITLE</h1>
       <ul id="days-list">
-
       </ul>
     </div>
   </body>

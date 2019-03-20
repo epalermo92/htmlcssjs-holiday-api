@@ -25,9 +25,15 @@ h1#month-title{
 #days-list{
   overflow-y: auto;
   background-color: white;
+  width: 50%;
 }
 
 #days-list > li{
   padding: 10px 20px 10px 10px;
   font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.holiday{
+  color : red;
 }
