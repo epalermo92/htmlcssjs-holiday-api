@@ -7,10 +7,22 @@ function generateDay(date,month,year){
   mom.year(year);
 
   var data = {
-    day : mom.format("D ddd"),
+    day : mom.format("ddd"),
+    date : mom.format("D"),
     attrDay : mom.format("YYYY-MM-DD"),
   }
 
+  var finalHTML = compiled(data);
+
+  return finalHTML;
+}
+
+function generateHolName(holName){
+  var template = $("#templateHol").html();
+  var compiled = Handlebars.compile(template);
+  var data = {
+    holName : holName,
+  };
   var finalHTML = compiled(data);
 
   return finalHTML;
@@ -24,7 +36,8 @@ function printHolidays(holidays){
 
     var dayHoliday = $("div[data-date='"+holidayDate+"']");
     dayHoliday.addClass("holiday");
-    dayHoliday.text(dayHoliday.text() + holidayName);
+    var spanHolName = generateHolName(holidayName);
+    $("div[data-date='"+holidayDate+"']").append(spanHolName);
   }
 }
 

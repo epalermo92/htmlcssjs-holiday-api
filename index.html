@@ -15,8 +15,12 @@
     <!--Handlebars template -->
     <script id="template" type="text/x-handlebars-template">
       <div class="day" data-date="{{attrDay}}">
-        {{day}}
+        <span id="day">{{day}}</span>
+        <span id="date">{{date}}</span>
       </div>
+    </script>
+    <script id="templateHol" type="text/x-handlebars-template">
+      <span id="holName">{{holName}}</span>
     </script>
     <!--Momentsjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
