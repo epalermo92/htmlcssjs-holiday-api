@@ -82,19 +82,27 @@ function changeMonth(month,year){
 
 
   rightMonth.click(function () {
-    $(".day").remove();
-    countMonth++;
-    printTitle(countMonth,year);
-    printDays(countMonth,year);
-    getHolidays(countMonth,year);
+    if (countMonth >= 11) {
+      alert("Non puoi andare avanti!!!Il calendario è del 2018!");
+    }else {
+      $(".day").remove();
+      countMonth++;
+      printTitle(countMonth,year);
+      printDays(countMonth,year);
+      getHolidays(countMonth,year);
+    }
   });
 
   leftMonth.click(function () {
-    $(".day").remove();
-    countMonth--;
-    printTitle(countMonth,year);
-    printDays(countMonth,year);
-    getHolidays(countMonth,year);
+    if (countMonth <= 0) {
+      alert("Non puoi tornare indietro!!!Il calendario è del 2018!");
+    }else {
+      $(".day").remove();
+      countMonth--;
+      printTitle(countMonth,year);
+      printDays(countMonth,year);
+      getHolidays(countMonth,year);
+    }
   });
 
 }
